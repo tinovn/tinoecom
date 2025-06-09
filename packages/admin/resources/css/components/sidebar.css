@@ -1,0 +1,43 @@
+.sidebar {
+  @apply space-y-5;
+}
+
+.sh-heading {
+  @apply mb-2 ml-3 text-xs font-medium uppercase leading-5 tracking-wider text-gray-500 dark:text-gray-400;
+}
+
+.sh-sidebar-item {
+  @apply flex items-center rounded-lg gap-2 px-3 py-2 text-sm font-medium transition duration-150 ease-in-out;
+}
+
+.sh-sidebar-item-active {
+  @apply bg-white text-primary-600 shadow-sm ring-1 ring-inset ring-gray-200 dark:bg-gray-800 dark:text-primary-500 dark:ring-white/10;
+}
+
+.sh-sidebar-item-inactive {
+  @apply text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-900 dark:hover:text-white;
+}
+
+.sh-sidebar-item-submenu {
+  @apply flex items-center py-1 border-l-2 text-sm font-medium pl-5 -ml-px;
+}
+
+.sh-sidebar-item-submenu-active {
+  @apply text-gray-700 border-primary-500 dark:text-white;
+}
+
+.sh-sidebar-item-submenu-inactive {
+  @apply text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-700 hover:border-gray-300 dark:hover:border-gray-800 dark:hover:text-gray-300;
+}
+
+.item-name {
+  @apply flex-1 truncate;
+}
+
+.submenu {
+  @apply my-3 ml-5 hidden space-y-2 border-l border-gray-200 py-2.5 dark:border-gray-800 lg:space-y-3;
+}
+
+.current-group .submenu {
+  @apply block;
+}

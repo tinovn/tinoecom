@@ -1,0 +1,111 @@
+{
+  "name": "tinoecom/framework",
+  "description": "An e-commerce administration built with Laravel for create and manage online shop.",
+  "license": "MIT",
+  "keywords": [
+    "e-commerce",
+    "tallstack",
+    "store"
+  ],
+  "authors": [
+    {
+      "name": "Tino Team",
+      "email": "support@tino.vn",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-intl": "*",
+    "composer-runtime-api": "^2.1"
+  },
+  "require-dev": {
+    "bacon/bacon-qr-code": "^2.0",
+    "codeat3/blade-phosphor-icons": "^2.3",
+    "codewithdennis/filament-select-tree": "^3.1",
+    "jaocero/radio-deck": "^1.2",
+    "blade-ui-kit/blade-heroicons": "^2.5",
+    "danharrin/livewire-rate-limiting": "^0.3|^1.0|^2.0",
+    "doctrine/dbal": "^3.6",
+    "filament/filament": "^3.3",
+    "filament/spatie-laravel-media-library-plugin": "^3.3",
+    "gehrisandro/tailwind-merge-laravel": "^1.3",
+    "jenssegers/agent": "^2.6",
+    "larastan/larastan": "^2.9|^3.0",
+    "laravel/pint": "^1.16",
+    "laravel/framework": "^10.0|^11.0|^12.0",
+    "mockery/mockery": "^1.4",
+    "pragmarx/google2fa": "^8.0",
+    "nunomaduro/collision": "^7.10.0|^8.1.1",
+    "orchestra/testbench": "^8.20|^9.0|^10.0",
+    "pestphp/pest": "^3.5",
+    "pestphp/pest-plugin-laravel": "^3.0",
+    "pestphp/pest-plugin-livewire": "^3.0",
+    "phpstan/phpstan": "^1.8|^2.0",
+    "rector/rector": "^1.2|^2.0",
+    "tinoecom/core": "*",
+    "spatie/laravel-livewire-wizard": "^2.2",
+    "stevebauman/location": "^7.2",
+    "spatie/laravel-package-tools": "^1.15",
+    "symplify/monorepo-builder": "^10.0"
+  },
+  "autoload": {
+    "files": [
+      "packages/admin/src/helpers.php",
+      "packages/core/src/helpers.php"
+    ],
+    "psr-4": {
+      "Tinoecom\\": [
+        "packages/admin/src",
+        "packages/core/src",
+        "packages/sidebar/src"
+      ],
+      "Tinoecom\\Core\\": "packages/core/src",
+      "Tinoecom\\Sidebar\\": "packages/sidebar/src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tinoecom\\Tests\\": "tests/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Tinoecom\\TinoecomServiceProvider",
+        "Tinoecom\\Core\\CoreServiceProvider",
+        "Tinoecom\\Sidebar\\SidebarServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "cs": [
+      "pint",
+      "npx run prettier"
+    ],
+    "pint": "./vendor/bin/pint",
+    "rector": "./vendor/bin/rector --dry-run",
+    "test:pest": "pest --parallel",
+    "test:phpstan": "phpstan analyse",
+    "test": [
+      "@test:phpstan",
+      "@test:pest"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/core"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
